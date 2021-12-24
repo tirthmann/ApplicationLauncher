@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ApplicationLauncher")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Application Launcher")]
+[assembly: AssemblyDescription("Application Launcher is a windows application that opens programs that the user specifies. Its purpose is to open a group of programs at once to save time")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ApplicationLauncher")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCompany("Tirthmann INC.")]
+[assembly: AssemblyProduct("Application Launcher")]
+[assembly: AssemblyCopyright("Copyright © 2021 Under Fair Use")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
