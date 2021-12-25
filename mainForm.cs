@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Microsoft.Win32;
 
 namespace ApplicationLauncher
 {
@@ -139,16 +140,20 @@ namespace ApplicationLauncher
 
         private void startWithWindowsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Do you want Application Launcher to run on startup?", "Windows Startup", MessageBoxButtons.YesNo);
-            if (DialogResult == DialogResult.Yes)
+            var temp = MessageBox.Show("Do you want Application Launcher to run on startup?", "Windows Startup", MessageBoxButtons.YesNo);
+            if (temp == DialogResult.Yes)
             {
-                Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                var path = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true);
                 key.SetValue("Application Launcher", Application.ExecutablePath);
+                MessageBox.Show("Check \"Startup Apps\" in Windows settings for Application Launcher and make sure it is enabled", "Sucess!");
             }
-            else if (DialogResult == DialogResult.No)
+            else if (temp == DialogResult.No)
             {
-                Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                var path = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true);
                 key.DeleteValue("Application Launcher", false);
+                MessageBox.Show("Application Launcher has been removed from startup", "Sucess!");
             }
         }
     }
